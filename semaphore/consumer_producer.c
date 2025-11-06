@@ -9,7 +9,7 @@
 
 #define BUFFER_SIZE 1024
 #define CONSUMERS_CNT 4
-#define PRODUCERS_CNT 3
+#define PRODUCERS_CNT 8
 
 #define SEMAPHORE_CNT 3
 //semaphore nums
@@ -74,7 +74,6 @@ void consumer(const int semid, char *addr) {
 
         (*cons_ptr)++;
 
-        sleep(rand() % 3);
 
         if (semop(semid, stop_consume, sizeof(stop_consume) / sizeof(stop_consume[0])) == -1) {
             perror("semop");
